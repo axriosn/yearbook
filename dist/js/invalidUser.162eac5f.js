@@ -1,0 +1,2 @@
+"use strict";(self["webpackChunkyearbook"]=self["webpackChunkyearbook"]||[]).push([[220],{103:function(e,n,r){r.r(n),r.d(n,{default:function(){return o}});var a=r(252);function u(e,n,r,u,t,i){return(0,a.wg)(),(0,a.iD)("p",null,"invalid user type shi")}var t=(0,a.aZ)({name:"InvalidUser"}),i=r(744);const s=(0,i.Z)(t,[["render",u]]);var o=s}}]);
+//# sourceMappingURL=invalidUser.162eac5f.js.map
