@@ -1,5 +1,8 @@
 # yearbook
 
+Made public solely for campus/user security. Contributions welcome, forks and non Ashby rc membership and yearbook committee uses prohibited.
+Has no license on purpose
+
 ## Project setup
 ```
 npm install
