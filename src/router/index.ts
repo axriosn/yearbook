@@ -23,11 +23,11 @@ const routes: Array<RouteRecordRaw> = [
     meta: { reqAuth: true },
   },
   {
-    path: '/invalid-user',
-    name: 'InvalidUser',
-    component: () => import(/* webpackChunkName: "invalidUser" */ '../views/InvalidUser.vue'),
-    meta: { reqAuth: false, doNotShow: true },
-  }
+    path: '/newsletter_builder',
+    name: 'Newsletter Builder',
+    component: () => import(/* webpackChunkName: "newsletterBuilder" */ '../views/NewsletterBuilder.vue'),
+    meta: { reqAuth: true },
+  },
 ]
 
 const router = createRouter({
@@ -37,9 +37,10 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
     if (to.meta.reqAuth && !authState.isSignedIn) {
-      next({path: '/invalid-user', query: {redirect: to.fullPath}});
+      authState.displayError('You do not have permission to access this page. If you believe this is an error please try logging in or contact Membership and Yearbook for help.');
+      next();
     } else {
-      next()
+      next();
     }
 })
 

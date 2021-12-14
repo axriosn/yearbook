@@ -38,12 +38,23 @@
   <br />
   <router-view />
   <br />
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p>
+        By <a href='https://github.com/axriosn'>Alex Rios</a> for Ashby RC's Membership and Yearbook. The source code and website content is purposefully <a href='https://choosealicense.com/no-permission/'><strong>not</strong> licensed</a>.
+        All rights reserved.
+      </p>
+      <a href='https://twitter.com'><span class='icon is-medium'><font-awesome-icon :icon="['fab', 'twitter']" /></span></a>
+      <a href='https://instagram.com'><span class='icon is-medium'><font-awesome-icon :icon="['fab', 'instagram']" /></span></a>
+      <a href='https://facebook.com'><span class='icon is-medium'><font-awesome-icon :icon="['fab', 'facebook']" /></span></a>
+    </div>
+  </footer>
 </template>
 
 <script lang='ts'>
 import { defineComponent } from "vue";
-// @ts-ignore what am i supposed to do? not use this? shut up
-import authState from './firebase.ts';
+import authState from './firebase';
 
 export default defineComponent({
   setup() {
