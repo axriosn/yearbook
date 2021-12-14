@@ -1,7 +1,7 @@
 # yearbook
 
-Made public solely for campus/user security. Contributions welcome, forks and non Ashby rc membership and yearbook committee uses prohibited.
-Has no license on purpose
+Made public solely for campus/user security. Contributions welcome, forks and non Ashby RC Membership and Yearbook committee use is prohibited.
+Purposefully left without a license (not unlicensed).
 
 ## Project setup
 ```
