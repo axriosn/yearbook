@@ -21,7 +21,7 @@ import {defineAsyncComponent, defineComponent, ref} from "vue";
 export default defineComponent({
   name: "Newsletters",
   components: {
-    NewsletterUploadModal: defineAsyncComponent(() => import(/* webpackChunkName: "uploadNewsletter" */ '../components/NewsletterUploadModal')),
+    NewsletterUploadModal: defineAsyncComponent(() => import('../components/NewsletterUploadModal.vue')),
   },
   setup() {
     const isModalActive = ref(false);

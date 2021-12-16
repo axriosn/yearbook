@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <p>home page lol</p>
   </div>
 </template>
 

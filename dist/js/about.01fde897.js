@@ -1,2 +1,0 @@
-"use strict";(self["webpackChunkyearbook"]=self["webpackChunkyearbook"]||[]).push([[443],{79:function(n,a,e){e.r(a),e.d(a,{default:function(){return f}});var r=e(252);const u={class:"about"},t=(0,r._)("h1",null,"This is an about page",-1),o=[t];function s(n,a){return(0,r.wg)(),(0,r.iD)("div",u,o)}var c=e(744);const i={},b=(0,c.Z)(i,[["render",s]]);var f=b}}]);
-//# sourceMappingURL=about.01fde897.js.map

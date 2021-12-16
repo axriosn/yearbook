@@ -3,7 +3,6 @@ export {};
 
 declare module 'vue-router' {
   interface RouteMeta {
-    doNotShow?: boolean;
     reqAuth: boolean;
   }
 }

@@ -42,7 +42,7 @@
   <footer class="footer">
     <div class="content has-text-centered">
       <p>
-        By <a href='https://github.com/axriosn'>Alex Rios</a> for Ashby RC's Membership and Yearbook. The source code and website content is purposefully <a href='https://choosealicense.com/no-permission/'><strong>not</strong> licensed</a>.
+        Made by <a href='https://github.com/axriosn'>Alex R.</a> for Ashby RC's Membership and Yearbook Committee. The source code and website content is purposefully <a href='https://choosealicense.com/no-permission/'>not licensed</a>.
         All rights reserved.
       </p>
       <a href='https://twitter.com'><span class='icon is-medium'><font-awesome-icon :icon="['fab', 'twitter']" /></span></a>

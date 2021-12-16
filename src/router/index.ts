@@ -13,25 +13,32 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/about_us',
     name: 'About Us',
-    component: () => import(/* webpackChunkName: "aboutUs" */ '../views/AboutUs.vue'),
+    component: () => import('../views/AboutUs.vue'),
+    meta: { reqAuth: false },
+  },
+  {
+    path: '/contact_us',
+    name: 'Contact Us',
+    component: () => import('../views/ContactUs.vue'),
     meta: { reqAuth: false },
   },
   {
     path: '/newsletters',
     name: 'Newsletters',
-    component: () => import(/* webpackChunkName: "newsletters" */ '../views/Newsletters.vue'),
+    component: () => import('../views/Newsletters.vue'),
     meta: { reqAuth: true },
   },
   {
     path: '/newsletter_builder',
     name: 'Newsletter Builder',
-    component: () => import(/* webpackChunkName: "newsletterBuilder" */ '../views/NewsletterBuilder.vue'),
+    component: () => import('../views/NewsletterBuilder.vue'),
     meta: { reqAuth: true },
   },
 ]
 
 const router = createRouter({
-  history: createWebHistory(process.env.BASE_URL),
+  // @ts-expect-error kjefs
+  history: createWebHistory(import.meta.env.BASE_URL),
   routes
 })
 

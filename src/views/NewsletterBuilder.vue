@@ -10,7 +10,6 @@ import 'grapesjs/dist/css/grapes.min.css';
 import 'grapesjs-preset-newsletter/dist/grapesjs-preset-newsletter.css';
 
 import grapesjs from 'grapesjs';
-// import 'grapesjs-firestore';
 import 'grapesjs-preset-newsletter';
 import '../grapesjs-firestore';
 
