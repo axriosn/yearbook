@@ -11,9 +11,9 @@ const routes: Array<RouteRecordRaw> = [
     meta: { reqAuth: false },
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    path: '/about_us',
+    name: 'About Us',
+    component: () => import(/* webpackChunkName: "aboutUs" */ '../views/AboutUs.vue'),
     meta: { reqAuth: false },
   },
   {
@@ -36,12 +36,13 @@ const router = createRouter({
 })
 
 router.beforeEach((to, from, next) => {
+  authState.authStateVerified.then(() => {
     if (to.meta.reqAuth && !authState.isSignedIn) {
       authState.displayError('You do not have permission to access this page. If you believe this is an error please try logging in or contact Membership and Yearbook for help.');
-      next();
     } else {
       next();
     }
+  });
 })
 
 export default router;
