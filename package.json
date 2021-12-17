@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "delpoy": "npm run build && git subtree push --prefix dist origin gh-pages"
+    "delpoy": "vite build && git subtree push --prefix dist origin gh-pages"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
