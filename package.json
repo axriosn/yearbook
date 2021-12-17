@@ -14,7 +14,6 @@
     "bulma-toast": "^2.4.1",
     "firebase": "^9.6.1",
     "grapesjs": "^0.17.29",
-    "grapesjs-firestore": "^0.1.1",
     "grapesjs-preset-newsletter": "^0.2.21",
     "register-service-worker": "^1.7.2",
     "vite": "^2.7.3",

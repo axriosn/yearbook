@@ -10,15 +10,15 @@
         <div class="media-left">
         </div>
         <div class="media-content">
-          <p class="title is-4">Name</p>
-          <p class="subtitle is-6">uncg email?</p>
+          <p class="title is-4">First last name</p>
+          <p class="subtitle is-6">email@uncg.edu</p>
           <a href='https://twitter.com/their-twitter'><span class='icon'><font-awesome-icon :icon='["fab", "twitter"]' /></span></a>
           <a href='https://instagram.com/their-ig'><span class='icon'><font-awesome-icon :icon='["fab", "instagram"]' /></span></a>
         </div>
       </div>
 
       <div class="content">
-        short description/bio idk
+        a short description/bio of First last name
       </div>
     </div>
   </div>
