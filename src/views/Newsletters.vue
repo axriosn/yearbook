@@ -4,13 +4,7 @@
       <p class='card-header-title'>Ashburrian Newsletters</p>
     </div>
     <div class='card-content'>
-      <!--      <Newsletter></Newsletter>-->
-    </div>
-    <div class='card-footer'>
-      <div class='card-footer-item'>
-        <button class='button is-primary' type='submit' @click='isModalActive = !isModalActive'>Upload</button>
-        <NewsletterUploadModal v-model='isModalActive'></NewsletterUploadModal>
-      </div>
+      <!--      <NewsletterPreview></NewsletterPreview>-->
     </div>
   </div>
 </template>
@@ -21,18 +15,10 @@ import {defineAsyncComponent, defineComponent, ref} from "vue";
 export default defineComponent({
   name: "Newsletters",
   components: {
-    NewsletterUploadModal: defineAsyncComponent(() => import('../components/NewsletterUploadModal.vue')),
+    //newsletterpreview,
   },
   setup() {
-    const isModalActive = ref(false);
-
-    function uploadNewsletter(e) {
-      console.log(e.target.elements.newsletter.files[0]);
-    }
-    return {
-      uploadNewsletter,
-      isModalActive,
-    }
+    return {}
   }
 });
 </script>

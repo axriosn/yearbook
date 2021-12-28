@@ -38,7 +38,8 @@ const authState = reactive({
   signInWithGoogle: () => signInWithRedirect(authState.auth, authState.provider),
   signOut: () => signOut(authState.auth),
   signInOut: () => authState.isSignedIn ? authState.signOut() : authState.signInWithGoogle(),
-  displayError: (message: string) => bulmaToast.toast({ message, type: 'is-danger' })
+  displayError: (message: string) => bulmaToast.toast({ message, type: 'is-danger' }),
+  displaySuccess: (message: string) => bulmaToast.toast({message, type:'is-success'}),
 });
 
 const db = getFirestore();
