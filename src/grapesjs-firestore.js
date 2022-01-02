@@ -2,10 +2,10 @@ import grapesjs from 'grapesjs';
 import {db} from './firebase';
 import {getDoc, setDoc, doc, collection} from 'firebase/firestore';
 
-let changeDocId;
+let changeDocId = () => {};
 
 export default grapesjs.plugins.add('grapesjs-firestore', (editor, options) => {
-  let docId = options.docId || 'latestUnfinished';
+  let docId = options.docId;
 
   const collectionRef = collection(db, 'newsletters')
   let docRef = doc(collectionRef, docId);
@@ -13,9 +13,12 @@ export default grapesjs.plugins.add('grapesjs-firestore', (editor, options) => {
   changeDocId = (newDocId) => {
     docId = newDocId;
     docRef = doc(collectionRef, docId);
+    editor.load();
   }
 
   editor.StorageManager.add('firestore', {
+    changeDocId,
+
     load(keys, clb, clbError) {
         getDoc(docRef)
           .then(doc => clb(doc.data()))

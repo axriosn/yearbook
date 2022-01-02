@@ -1,8 +1,8 @@
 <template>
-  <div class="container">
-    <section class="section">
-      <h1 class="title">Who we are</h1>
-      <h2 class="subtitle">
+  <div class='container'>
+    <section class='section'>
+      <h1 class='title'>Who we are</h1>
+      <h2 class='subtitle'>
         A description of who we are
       </h2>
     </section>

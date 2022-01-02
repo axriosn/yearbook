@@ -18,7 +18,6 @@
     <div id='navbar' :class='{"is-active": authState.isNavbarVisible}' class='navbar-menu'>
       <div class='navbar-start'>
         <router-link v-for='route in authState.routes'
-                     :class='{ "is-primary": authState.selectedRoute?.name === route.name }'
                      :to='route.path' class='navbar-item'>{{ route.name }}
         </router-link>
       </div>
@@ -68,12 +67,12 @@ export default defineComponent({
 
 <style lang='scss'>
 $body-background-color: #C2CAE8;
-$navbar-item-hover-background-color: #dcedff;
 $navbar-background-color: #8380B6;
-$navbar-dropdown-background-color: #505a5b;
-$navbar-item-hover-color: #343f3e;
-$navbar-dropdown-active-color: #343f3e;
 $navbar-item-color: white;
+$navbar-item-hover-background-color: #dcedff;
+$navbar-item-hover-color: #343f3e;
+$navbar-dropdown-background-color: #505a5b;
+$navbar-dropdown-active-color: #343f3e;
 
 @import './../node_modules/bulma/bulma';
 
@@ -81,7 +80,6 @@ $navbar-item-color: white;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
 }
 

@@ -4,18 +4,18 @@
       <p class='card-header-title'>Ashburrian Newsletters</p>
     </div>
     <div class='card-content'>
-      <!--      <NewsletterPreview></NewsletterPreview>-->
+      <NewsletterPreview></NewsletterPreview>
     </div>
   </div>
 </template>
 
 <script>
-import {defineAsyncComponent, defineComponent, ref} from "vue";
+import {defineAsyncComponent, defineComponent} from "vue";
 
 export default defineComponent({
   name: "Newsletters",
   components: {
-    //newsletterpreview,
+    'NewsletterPreview': defineAsyncComponent(() => import('../components/NewsletterPreview.vue')),
   },
   setup() {
     return {}
