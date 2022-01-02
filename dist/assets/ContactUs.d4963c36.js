@@ -1,0 +1,2 @@
+import{_ as e}from"./index.246bad07.js";import{c as o,o as t}from"./vendor.2d9f655f.js";const s={name:"ContactUs"},a={src:"https://docs.google.com/forms/d/e/1FAIpQLSddZmfwjdLUALHAS4HTRA1yDXFeVOoIwH0D-OPneRAMPbGxyQ/viewform?embedded=true",width:"640",height:"947",class:"iframe"};function r(d,c,n,_,f,i){return t(),o("iframe",a,`Loading\u2026\r
+  `)}var l=e(s,[["render",r],["__scopeId","data-v-287da3ce"]]);export{l as default};
