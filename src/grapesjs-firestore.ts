@@ -8,9 +8,8 @@ interface PluginOptions {
   docId: string;
 }
 
-const plugin: grapesjs.Plugin<PluginOptions> = (editor, options) => {
+const grapesjsFirestore: grapesjs.Plugin<PluginOptions> = (editor, options) => {
   let docId = options.docId;
-
   const collectionRef = collection(db, 'newsletters')
   let docRef = doc(collectionRef, docId);
 
@@ -34,5 +33,5 @@ const plugin: grapesjs.Plugin<PluginOptions> = (editor, options) => {
     });
   };
 
-export default plugin;
+export default grapesjsFirestore;
 export {changeDocId};

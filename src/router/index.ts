@@ -1,7 +1,6 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import Home from '../views/Home.vue'
-// @ts-ignore
-import authState from '../firebase.ts';
+import authState from '../firebase';
 
 const routes: Array<RouteRecordRaw> = [
   {

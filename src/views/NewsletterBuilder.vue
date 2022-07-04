@@ -31,8 +31,7 @@ import 'grapesjs-preset-newsletter/dist/grapesjs-preset-newsletter.css';
 
 import grapesjs from 'grapesjs';
 import 'grapesjs-preset-newsletter';
-import '../grapesjs-firestore';
-import {changeDocId} from '../grapesjs-firestore';
+import grapesjsFirestore, {changeDocId} from '../grapesjs-firestore';
 
 import {addDoc, collection, doc, runTransaction} from 'firebase/firestore';
 import authState, {db} from '../firebase';
@@ -58,13 +57,14 @@ export default defineComponent({
     };
 
     const selectedNewsletterHandler = {
-      set: async (obj, prop, value) => {
+      set: (obj, prop, value) => {
         if (editor.StorageManager.isAutosave() !== (selectedNewsletterProxy.id === 'latestUnfinished')) editor.StorageManager.setAutosave(selectedNewsletterProxy.id === 'latestUnfinished');
-        await changeDocId(value);
-        authState.displaySuccess(`Changes will${editor.StorageManager.isAutosave() ? ' NOT' : ''} save automatically`);
+        changeDocId(value).then(() => {
+          authState.displaySuccess(`Changes will${editor.StorageManager.isAutosave() ? ' NOT' : ''} save automatically`);
 
-        obj[prop] = value;
-        return true;
+          obj[prop] = value;
+          return true;
+        });
       }
     };
 
@@ -73,10 +73,10 @@ export default defineComponent({
     onMounted(() => {
       editor = grapesjs.init({
         container: '#gjs',
-        plugins: ['gjs-preset-newsletter', 'grapesjs-firestore'],
+        plugins: ['gjs-preset-newsletter', grapesjsFirestore],
         storageManager: {type: 'firestore'},
         pluginsOpts: {
-          'grapesjs-firestore': {
+          [grapesjsFirestore]: {
             docId: selectedNewsletterProxy.id,
           }
         }
