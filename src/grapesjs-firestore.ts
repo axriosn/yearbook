@@ -1,6 +1,6 @@
 import grapesjs from 'grapesjs';
 import {db} from './firebase';
-import {getDoc, setDoc, doc, collection} from 'firebase/firestore';
+import {collection, doc, getDoc, setDoc} from 'firebase/firestore';
 
 let changeDocId: Function;
 
@@ -28,10 +28,10 @@ const grapesjsFirestore: grapesjs.Plugin<PluginOptions> = (editor, options) => {
     },
 
     async store(data) {
-        setDoc(docRef, data);
-      },
-    });
-  };
+      setDoc(docRef, data);
+    },
+  });
+};
 
 export default grapesjsFirestore;
 export {changeDocId};

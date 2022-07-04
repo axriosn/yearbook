@@ -2,7 +2,7 @@
   <nav aria-label='main navigation' class='navbar' role='navigation'>
     <div class='navbar-brand'>
       <a class='navbar-item'>
-        <img height='28' src='https://bulma.io/images/bulma-logo.png' width='112' alt='Ashby Logo'>
+        <img alt='Ashby Logo' height='28' src='https://bulma.io/images/bulma-logo.png' width='112'>
       </a>
 
       <a :class='{"is-active": authState.isNavbarVisible}' aria-controls='navbar' aria-expanded='false'
@@ -38,21 +38,25 @@
   <router-view />
   <br />
 
-  <footer class="footer">
-    <div class="content has-text-centered">
+  <footer class='footer'>
+    <div class='content has-text-centered'>
       <p>
-        Made by <a href='https://github.com/axriosn'>Alex R.</a> for Ashby RC's Membership and Yearbook Committee. The source code and website content is purposefully <a href='https://choosealicense.com/no-permission/'>not licensed</a>.
+        Made by <a href='https://github.com/axriosn'>Alex R.</a> for Ashby RC's Membership and Yearbook Committee. The
+        source code and website content is purposefully <a href='https://choosealicense.com/no-permission/'>not
+        licensed</a>.
         All rights reserved.
       </p>
       <a href='https://twitter.com'><span class='icon is-medium'><font-awesome-icon :icon="['fab', 'twitter']" /></span></a>
-      <a href='https://instagram.com'><span class='icon is-medium'><font-awesome-icon :icon="['fab', 'instagram']" /></span></a>
-      <a href='https://facebook.com'><span class='icon is-medium'><font-awesome-icon :icon="['fab', 'facebook']" /></span></a>
+      <a href='https://instagram.com'><span class='icon is-medium'><font-awesome-icon
+          :icon="['fab', 'instagram']" /></span></a>
+      <a href='https://facebook.com'><span class='icon is-medium'><font-awesome-icon
+          :icon="['fab', 'facebook']" /></span></a>
     </div>
   </footer>
 </template>
 
 <script lang='ts'>
-import { defineComponent } from "vue";
+import {defineComponent} from "vue";
 import authState from './firebase';
 
 export default defineComponent({

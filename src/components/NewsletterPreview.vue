@@ -1,9 +1,9 @@
 <template>
-  <router-link to='page' v-slot='{href, navigate}' custom>
+  <router-link v-slot='{href, navigate}' custom to='page'>
     <article class='media'>
       <figure class='media-left'>
         <p class='image is-64x64'>
-          <img src='https://bulma.io/images/placeholders/64x64.png' alt='newsletter image' />
+          <img alt='newsletter image' src='https://bulma.io/images/placeholders/64x64.png' />
         </p>
       </figure>
       <div class='media-content'>

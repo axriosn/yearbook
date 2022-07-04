@@ -1,5 +1,6 @@
 <template>
-  <PublishInfoModal :publish-newsletter='publishNewsletter' :close-modal='closeModal' :class='{ "is-active": isModalActive}'></PublishInfoModal>
+  <PublishInfoModal :class='{ "is-active": isModalActive}' :close-modal='closeModal'
+                    :publish-newsletter='publishNewsletter'></PublishInfoModal>
   <div class='container'>
     <div class='buttons'>
       <div class='select'>
@@ -12,10 +13,10 @@
       <div class='field'>
         <div class='label'></div>
         <div class='control'>
-          <button class='button' @click='isModalActive = true' v-if='selectedNewsletterProxy.id === "latestUnfinished"'>
+          <button v-if='selectedNewsletterProxy.id === "latestUnfinished"' class='button' @click='isModalActive = true'>
             Publish as...
           </button>
-          <button class='button' @click='saveNewsletter' v-else>Save changes</button>
+          <button v-else class='button' @click='saveNewsletter'>Save changes</button>
         </div>
       </div>
 

@@ -12,7 +12,7 @@
               <div class='field-body'>
                 <div class='field'>
                   <p class='control is-expanded'>
-                    <input class='input' type='text' placeholder='Ashburrian Vol...' v-model='newsletterInfo.name' />
+                    <input v-model='newsletterInfo.name' class='input' placeholder='Ashburrian Vol...' type='text' />
                   </p>
                 </div>
               </div>
@@ -25,7 +25,7 @@
               <div class='field-body'>
                 <div class='field'>
                   <div class='control'>
-                    <input class='input' type='date' v-model='newsletterInfo.week' />
+                    <input v-model='newsletterInfo.week' class='input' type='date' />
                     <p class='help'>Select literally any day of the newsletter week</p>
                   </div>
                 </div>
@@ -39,20 +39,20 @@
               <div class='field-body'>
                 <div class='field'>
                   <div class='control'>
-                    <textarea class='textarea' placeholder='This weeks special events include(d)...'
-                              v-model='newsletterInfo.bio'></textarea>
+                    <textarea v-model='newsletterInfo.bio' class='textarea'
+                              placeholder='This weeks special events include(d)...'></textarea>
                   </div>
                 </div>
               </div>
             </div>
 
             <div class='field is-horizontal is-grouped'>
-                  <div class='control'>
-                    <button class='button is-primary' type='submit'>Publish</button>
-                  </div>
-                  <div class='control'>
-                    <button class='button' type='button' @click.prevent='closeModal'>Cancel</button>
-                  </div>
+              <div class='control'>
+                <button class='button is-primary' type='submit'>Publish</button>
+              </div>
+              <div class='control'>
+                <button class='button' type='button' @click.prevent='closeModal'>Cancel</button>
+              </div>
             </div>
           </form>
         </div>

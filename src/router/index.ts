@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
+import {createRouter, createWebHistory, RouteRecordRaw} from 'vue-router'
 import Home from '../views/Home.vue'
 import authState from '../firebase';
 
@@ -7,31 +7,31 @@ const routes: Array<RouteRecordRaw> = [
     path: '/',
     name: 'Home',
     component: Home,
-    meta: { reqAuth: false },
+    meta: {reqAuth: false},
   },
   {
     path: '/about_us',
     name: 'About Us',
     component: () => import('../views/AboutUs.vue'),
-    meta: { reqAuth: false },
+    meta: {reqAuth: false},
   },
   {
     path: '/contact_us',
     name: 'Contact Us',
     component: () => import('../views/ContactUs.vue'),
-    meta: { reqAuth: false },
+    meta: {reqAuth: false},
   },
   {
     path: '/newsletters',
     name: 'Newsletters',
     component: () => import('../views/Newsletters.vue'),
-    meta: { reqAuth: true },
+    meta: {reqAuth: true},
   },
   {
     path: '/newsletter_builder',
     name: 'Newsletter Builder',
     component: () => import('../views/NewsletterBuilder.vue'),
-    meta: { reqAuth: true },
+    meta: {reqAuth: true},
   },
 ]
 
@@ -52,4 +52,4 @@ router.beforeEach((to, from, next) => {
 })
 
 export default router;
-export { routes };
+export {routes};

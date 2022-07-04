@@ -1,10 +1,10 @@
-import { reactive } from "vue";
-import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider, signInWithRedirect, onAuthStateChanged, signOut } from "firebase/auth";
-import { getFirestore} from 'firebase/firestore';
-import router, { routes } from '@/router';
+import {reactive} from "vue";
+import {initializeApp} from 'firebase/app';
+import {getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithRedirect, signOut} from "firebase/auth";
+import {getFirestore} from 'firebase/firestore';
+import router, {routes} from '@/router';
 import * as bulmaToast from 'bulma-toast';
-import {ToastType} from "bulma-toast";
+import {ToastType} from 'bulma-toast';
 
 initializeApp({
   apiKey: "AIzaSyCU5YpnSDueos6WH_yfS44ORPLGNj2FGpo",
@@ -39,10 +39,10 @@ const authState = reactive({
   signInWithGoogle: () => signInWithRedirect(authState.auth, authState.provider),
   signOut: () => signOut(authState.auth),
   signInOut: () => authState.isSignedIn ? authState.signOut() : authState.signInWithGoogle(),
-  displayToast: (message: string, type: ToastType) => bulmaToast.toast({ message, type }),
+  displayToast: (message: string, type: ToastType) => bulmaToast.toast({message, type}),
 });
 
 const db = getFirestore();
 
 export default authState;
-export { db };
+export {db};
