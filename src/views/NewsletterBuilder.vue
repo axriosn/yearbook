@@ -58,9 +58,9 @@ export default defineComponent({
     };
 
     const selectedNewsletterHandler = {
-      set: (obj, prop, value) => {
+      set: async (obj, prop, value) => {
         if (editor.StorageManager.isAutosave() !== (selectedNewsletterProxy.id === 'latestUnfinished')) editor.StorageManager.setAutosave(selectedNewsletterProxy.id === 'latestUnfinished');
-        changeDocId(value);
+        await changeDocId(value);
         authState.displaySuccess(`Changes will${editor.StorageManager.isAutosave() ? ' NOT' : ''} save automatically`);
 
         obj[prop] = value;
