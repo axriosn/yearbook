@@ -28,7 +28,7 @@ const grapesjsFirestore: grapesjs.Plugin<PluginOptions> = (editor, options) => {
     },
 
     async store(data) {
-        await setDoc(docRef, data);
+        setDoc(docRef, data);
       },
     });
   };

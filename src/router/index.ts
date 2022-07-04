@@ -44,7 +44,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
   authState.authStateVerified.then(() => {
     if (to.meta.reqAuth && !authState.isSignedIn) {
-      authState.displayError('You do not have permission to access this page. If you believe this is an error please try logging in or contact Membership and Yearbook for help.');
+      authState.displayToast('You do not have permission to access this page. If you believe this is an error please try logging in or contact Membership and Yearbook for help.', 'is-danger');
     } else {
       next();
     }

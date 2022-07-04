@@ -60,11 +60,10 @@ export default defineComponent({
       set: (obj, prop, value) => {
         if (editor.StorageManager.isAutosave() !== (selectedNewsletterProxy.id === 'latestUnfinished')) editor.StorageManager.setAutosave(selectedNewsletterProxy.id === 'latestUnfinished');
         changeDocId(value).then(() => {
-          authState.displaySuccess(`Changes will${editor.StorageManager.isAutosave() ? ' NOT' : ''} save automatically`);
-
+          authState.displayToast(`Changes will${editor.StorageManager.isAutosave() ? ' NOT' : ''} save automatically`, 'is-warning');
           obj[prop] = value;
-          return true;
         });
+        return true;
       }
     };
 

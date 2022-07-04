@@ -4,6 +4,7 @@ import { getAuth, GoogleAuthProvider, signInWithRedirect, onAuthStateChanged, si
 import { getFirestore} from 'firebase/firestore';
 import router, { routes } from '@/router';
 import * as bulmaToast from 'bulma-toast';
+import {ToastType} from "bulma-toast";
 
 initializeApp({
   apiKey: "AIzaSyCU5YpnSDueos6WH_yfS44ORPLGNj2FGpo",
@@ -38,8 +39,7 @@ const authState = reactive({
   signInWithGoogle: () => signInWithRedirect(authState.auth, authState.provider),
   signOut: () => signOut(authState.auth),
   signInOut: () => authState.isSignedIn ? authState.signOut() : authState.signInWithGoogle(),
-  displayError: (message: string) => bulmaToast.toast({ message, type: 'is-danger' }),
-  displaySuccess: (message: string) => bulmaToast.toast({message, type:'is-success'}),
+  displayToast: (message: string, type: ToastType) => bulmaToast.toast({ message, type }),
 });
 
 const db = getFirestore();
