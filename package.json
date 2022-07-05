@@ -7,16 +7,17 @@
     "@fortawesome/fontawesome-svg-core": "^6.1.1",
     "@fortawesome/free-brands-svg-icons": "^6.1.1",
     "@fortawesome/vue-fontawesome": "^3.0.0-5",
-    "@vitejs/plugin-vue": "^2.3.3",
+    "@vitejs/plugin-vue": "^3.0.0-beta.0",
     "bulma": "^0.9.4",
     "bulma-toast": "^2.4.1",
     "firebase": "^9.8.4",
     "grapesjs": "^0.19.4",
     "grapesjs-preset-newsletter": "^0.2.21",
+    "grapesjs-project-manager": "^2.0.2",
     "register-service-worker": "^1.7.2",
-    "vite": "^2.9.13",
+    "vite": "^3.0.0-beta.6",
     "vue": "^3.2.37",
-    "vue-router": "^4.1.0"
+    "vue-router": "^4.1.1"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^4.1.3",
