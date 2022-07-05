@@ -2,8 +2,6 @@ import grapesjs from 'grapesjs';
 import {db} from './firebase';
 import {collection, doc, getDoc, setDoc} from 'firebase/firestore';
 
-let changeDocId: Function;
-
 interface PluginOptions {
   docId: string;
 }
@@ -13,14 +11,12 @@ const grapesjsFirestore: grapesjs.Plugin<PluginOptions> = (editor, options) => {
   const collectionRef = collection(db, 'newsletters')
   let docRef = doc(collectionRef, docId);
 
-  changeDocId = async (newDocId: string) => {
-    docId = newDocId;
-    docRef = doc(collectionRef, docId);
-    await editor.load({});
-  }
-
   editor.StorageManager.add('firestore', {
-    changeDocId,
+    async setId(newDocId: string) {
+      docId = newDocId;
+      docRef = doc(collectionRef, docId);
+      await editor.load({});
+    },
 
     async load() {
       const result = await getDoc(docRef);
@@ -34,4 +30,3 @@ const grapesjsFirestore: grapesjs.Plugin<PluginOptions> = (editor, options) => {
 };
 
 export default grapesjsFirestore;
-export {changeDocId};

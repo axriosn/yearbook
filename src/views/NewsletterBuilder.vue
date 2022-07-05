@@ -28,13 +28,15 @@
 <script>
 import {defineAsyncComponent, defineComponent, onMounted, ref} from "vue";
 import 'grapesjs/dist/css/grapes.min.css';
-import 'grapesjs-preset-newsletter/dist/grapesjs-preset-newsletter.css';
+import'grapesjs-preset-newsletter/dist/grapesjs-preset-newsletter.css';
+// import 'grapesjs-project-manager/dist/grapesjs-project-manager.min.css'
 
 import grapesjs from 'grapesjs';
-import 'grapesjs-preset-newsletter';
-import grapesjsFirestore, {changeDocId} from '../grapesjs-firestore';
+import gjsPresetNewsletter from 'grapesjs-preset-newsletter';
+// import gjsProjectManager from 'grapesjs-project-manager';
+import grapesjsFirestore from '../grapesjs-firestore';
 
-import {addDoc, collection, doc, runTransaction} from 'firebase/firestore';
+import {addDoc, collection, getDoc, setDoc, doc} from 'firebase/firestore';
 import authState, {db} from '../firebase';
 
 export default defineComponent({
@@ -50,7 +52,7 @@ export default defineComponent({
 
     let saveNewsletter = () => {
       editor.store();
-      authState.displaySuccess('Successfully saved progress');
+      authState.displayToast('Successfully saved progress', 'is-success');
     };
 
     const selectedNewsletterObj = {
@@ -60,7 +62,7 @@ export default defineComponent({
     const selectedNewsletterHandler = {
       set: (obj, prop, value) => {
         if (editor.StorageManager.isAutosave() !== (selectedNewsletterProxy.id === 'latestUnfinished')) editor.StorageManager.setAutosave(selectedNewsletterProxy.id === 'latestUnfinished');
-        changeDocId(value).then(() => {
+        editor.StorageManager.setId(value).then(() => {
           authState.displayToast(`Changes will${editor.StorageManager.isAutosave() ? ' NOT' : ''} save automatically`, 'is-warning');
           obj[prop] = value;
         });
@@ -73,7 +75,8 @@ export default defineComponent({
     onMounted(() => {
       editor = grapesjs.init({
         container: '#gjs',
-        plugins: ['gjs-preset-newsletter', grapesjsFirestore],
+        // pageManager: true,
+        plugins: [gjsPresetNewsletter, grapesjsFirestore],
         storageManager: {type: 'firestore'},
         pluginsOpts: {
           [grapesjsFirestore]: {
@@ -81,12 +84,20 @@ export default defineComponent({
           }
         }
       });
+/*      editor.Panels.addButton('options', {
+        id: 'open-templates',
+        className: 'fa fa-folder-o',
+        attributes: {
+          title: 'Open projects and templates'
+        },
+        command: 'open-templates', //Open modal
+      });*/
     });
 
+
     function publishNewsletter(newsletterInfo) {
-      runTransaction(db, (transaction) => {
         newsletterInfo.week = new Date(newsletterInfo.week);
-        newsletterInfo.week.setDate(newsletterInfo.week.getDate() - newsletterInfo.week.getDay);
+        newsletterInfo.week.setDate(newsletterInfo.week.getDate() - newsletterInfo.week.getDay());
 
         const COLLECTION_REF = collection(db, 'newsletters');
         addDoc(COLLECTION_REF, {
@@ -94,10 +105,10 @@ export default defineComponent({
           ...newsletterInfo,
         });
 
-        transaction.get(doc(COLLECTION_REF, 'template')).then((templateDoc) => {
-          transaction.set(doc(COLLECTION_REF, 'latestUnfinished'), templateDoc.data());
+        getDoc(doc(COLLECTION_REF, 'template')).then((templateDoc) => {
+          setDoc(doc(COLLECTION_REF, 'latestUnfinished'), templateDoc.data());
         });
-      });
+        isModalActive.value = false;
     }
 
     return {
